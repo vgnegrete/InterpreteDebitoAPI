@@ -22,13 +22,13 @@ namespace InterpreteDebitoAPI.Controllers
                 Mensaje = "Ok",
                 tiemposEjecucion = new TiemposEjecucion() { Min =MinRandom, Max = MaxRandom, Promedio = (MinRandom + MaxRandom)/2.0, UltimaTransaccion = DateTime.Now },
                 LstOperacionesTipo = new List<CantidadxTipo>() {
-                    new CantidadxTipo() { CodigoOperacion="00", Cantidad = rnd.Next(60, 100) },
-                    new CantidadxTipo() { CodigoOperacion="01", Cantidad = rnd.Next(40, 80) },
-                    new CantidadxTipo() { CodigoOperacion="17", Cantidad = rnd.Next(40, 120) },
-                    new CantidadxTipo() { CodigoOperacion="45", Cantidad = rnd.Next(5, 10) },
-                    new CantidadxTipo() { CodigoOperacion="65", Cantidad = rnd.Next(10, 20) },
-                    new CantidadxTipo() { CodigoOperacion="20", Cantidad = rnd.Next(1, 5) },
-                    new CantidadxTipo() { CodigoOperacion="25", Cantidad = rnd.Next(50, 70) }
+                    new CantidadxTipo() { CodigoOperacion="00", Operacion="Venta", Cantidad = rnd.Next(60, 100) },
+                    new CantidadxTipo() { CodigoOperacion="01", Operacion="Retiro de efectivo", Cantidad = rnd.Next(40, 80) },
+                    new CantidadxTipo() { CodigoOperacion="17", Operacion="Compra con cashback", Cantidad = rnd.Next(40, 120) },
+                    new CantidadxTipo() { CodigoOperacion="45", Operacion="Pago recurrente", Cantidad = rnd.Next(5, 10) },
+                    new CantidadxTipo() { CodigoOperacion="65", Operacion="Recarga telefonica", Cantidad = rnd.Next(10, 20) },
+                    new CantidadxTipo() { CodigoOperacion="20", Operacion="Devolucion", Cantidad = rnd.Next(1, 5) },
+                    new CantidadxTipo() { CodigoOperacion="25", Operacion="Deposito en efectivo", Cantidad = rnd.Next(50, 70) }
                 }
 
             });

@@ -36,6 +36,7 @@ namespace InterpreteDebitoAPI.Entities
 	public class CantidadxTipo
 	{
 		public string? CodigoOperacion { get; set; }
+		public string? Operacion { get; set; }
 		public int Cantidad { get; set; }
 	}
 
