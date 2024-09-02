@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using InterpreteDebitoAPI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
@@ -50,6 +51,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<IAccesoDatos, AccesoDatos>();
 
 var app = builder.Build();
 

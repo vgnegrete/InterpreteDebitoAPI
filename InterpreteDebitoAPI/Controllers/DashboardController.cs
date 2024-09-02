@@ -20,7 +20,7 @@ namespace InterpreteDebitoAPI.Controllers
             {
                 Result = 0,
                 Mensaje = "Ok",
-                tiemposEjecucion = new TiemposEjecucion() { Min =MinRandom, Max = MaxRandom, Promedio = (MinRandom + MaxRandom)/2.0, UltimaTransaccion = DateTime.Now },
+                tiemposEjecucion = new TiemposEjecucion() { Minimo =MinRandom, Maximo = MaxRandom, Media = (MinRandom + MaxRandom)/2.0, UltimaTransaccion = DateTime.Now },
                 LstOperacionesTipo = new List<CantidadxTipo>() {
                     new CantidadxTipo() { CodigoOperacion="00", Operacion="Venta", Cantidad = rnd.Next(60, 100) },
                     new CantidadxTipo() { CodigoOperacion="01", Operacion="Retiro de efectivo", Cantidad = rnd.Next(40, 80) },
