@@ -7,7 +7,13 @@ namespace InterpreteDebitoAPI.Entities
         public string? Mensaje { get; set; }
     }
 
-	public class TokenInfo
+    public class AllowedUser
+    {
+        public string? User { get; set; }
+        public string? Password { get; set; }
+    }
+
+    public class TokenInfo
 	{
 		public DateTime fechaCaducidad { get; set; }
 		public string? Token { get; set; }

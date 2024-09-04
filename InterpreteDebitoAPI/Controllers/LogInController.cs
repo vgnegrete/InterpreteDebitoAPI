@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using InterpreteDebitoAPI.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
 namespace InterpreteDebitoAPI.Controllers
@@ -44,7 +46,11 @@ namespace InterpreteDebitoAPI.Controllers
 
         private bool ValidaLoginApp(LoginRequestDTO pLogIn)
         {
-            if (pLogIn?.User?.ToLower() == "usuario" && pLogIn.Password == "Abcde1")
+            List<AllowedUser> LstUsers = configuration.GetSection("AllowedUsers").Get<List<AllowedUser>>();
+
+            AllowedUser? MatchUser = LstUsers.FirstOrDefault(i => i.User == pLogIn?.User?.ToLower());
+
+            if (MatchUser!= null && MatchUser.Password== pLogIn.Password)
             {
                 return true;
             }
