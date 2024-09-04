@@ -9,6 +9,7 @@ namespace InterpreteDebitoAPI
     {
         public TiemposEjecucionResponseDTO prConsultarTiemposEjecucion(TiemposEjecucionRequestDTO Params);
         public DetalleTransaccionResponseDTO prConsultarDetalleTransaccion(DetalleTransaccionRequestDTO Params);
+        public DashboardResponseDTO prConsultarDashboard();
     }
 
 	public class AccesoDatos: IAccesoDatos
@@ -60,6 +61,18 @@ namespace InterpreteDebitoAPI
                     );
 
                 return new DetalleTransaccionResponseDTO() { LogOperacion = queryResult.ReadFirst<DetalleOperacion>(), LogRequest = queryResult.ReadFirst<CMVWSRequest>(), LogResponse= queryResult.ReadFirst<CMVWSResponse>() };
+            }
+        }
+
+        public DashboardResponseDTO prConsultarDashboard()
+        {
+            using (SqlConnection sqlcon = new SqlConnection(strCon))
+            {
+                var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarDashboard]",
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+
+                return new DashboardResponseDTO() { tiemposEjecucion = queryResult.ReadFirst<TiemposEjecucion>(), LstOperacionesTipo = queryResult.Read<CantidadxTipo>().ToList()};
             }
         }
 

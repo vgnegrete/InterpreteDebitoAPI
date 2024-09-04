@@ -9,30 +9,29 @@ namespace InterpreteDebitoAPI.Controllers
     [Route("[controller]")]
     public class DashboardController : ControllerBase
     {
-        [HttpGet, Authorize]
+        private readonly IAccesoDatos? AD = null;
+
+        public DashboardController(IAccesoDatos _accesoDatos)
+        {
+            AD = _accesoDatos;
+        }
+
+        [HttpGet]
         public ActionResult<DashboardResponseDTO> GetDashboard()
 		{
-            Random rnd = new Random();
-            double MinRandom = rnd.Next(1, 30)/10.0;
-            double MaxRandom = MinRandom + rnd.Next(1, 20) / 10.0;
 
-            return Ok(new DashboardResponseDTO()
+            try
             {
-                Result = 0,
-                Mensaje = "Ok",
-                tiemposEjecucion = new TiemposEjecucion() { Minimo =MinRandom, Maximo = MaxRandom, Media = (MinRandom + MaxRandom)/2.0, UltimaTransaccion = DateTime.Now },
-                LstOperacionesTipo = new List<CantidadxTipo>() {
-                    new CantidadxTipo() { CodigoOperacion="00", Operacion="Venta", Cantidad = rnd.Next(60, 100) },
-                    new CantidadxTipo() { CodigoOperacion="01", Operacion="Retiro de efectivo", Cantidad = rnd.Next(40, 80) },
-                    new CantidadxTipo() { CodigoOperacion="17", Operacion="Compra con cashback", Cantidad = rnd.Next(40, 120) },
-                    new CantidadxTipo() { CodigoOperacion="45", Operacion="Pago recurrente", Cantidad = rnd.Next(5, 10) },
-                    new CantidadxTipo() { CodigoOperacion="65", Operacion="Recarga telefonica", Cantidad = rnd.Next(10, 20) },
-                    new CantidadxTipo() { CodigoOperacion="20", Operacion="Devolucion", Cantidad = rnd.Next(1, 5) },
-                    new CantidadxTipo() { CodigoOperacion="25", Operacion="Deposito en efectivo", Cantidad = rnd.Next(50, 70) }
-                }
+                DashboardResponseDTO? ADresponse = AD?.prConsultarDashboard();
+                ADresponse.Result = 0;
+                ADresponse.Mensaje = "Ok";
 
-            });
-
+                return Ok(ADresponse);
+            }
+            catch (Exception Ex)
+            {
+                return StatusCode(500, new DashboardResponseDTO() { Result = 1, Mensaje = Ex.Message });
+            }
 		}
 	}
 }

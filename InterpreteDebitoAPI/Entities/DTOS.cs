@@ -31,9 +31,11 @@ namespace InterpreteDebitoAPI.Entities
         public double Maximo { get; set; }
         public double Media { get; set; }
 		public DateTime UltimaTransaccion { get; set; }
+        public DateTime FechaIni { get; set; }
+        public DateTime FechaFin { get; set; }
     }
 
-	public class CantidadxTipo
+    public class CantidadxTipo
 	{
 		public string? CodigoOperacion { get; set; }
 		public string? Operacion { get; set; }
