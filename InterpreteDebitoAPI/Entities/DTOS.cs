@@ -7,6 +7,13 @@ namespace InterpreteDebitoAPI.Entities
         public string? Mensaje { get; set; }
     }
 
+    public class Paging
+    {
+        public int Skip { get; set; }
+        public int Take { get; set; }
+
+    }
+
     public class AllowedUser
     {
         public string? User { get; set; }
@@ -36,6 +43,7 @@ namespace InterpreteDebitoAPI.Entities
 		public double Minimo { get; set; }
         public double Maximo { get; set; }
         public double Media { get; set; }
+        public int Count { get; set; }
 		public DateTime UltimaTransaccion { get; set; }
         public DateTime FechaIni { get; set; }
         public DateTime FechaFin { get; set; }
@@ -48,18 +56,38 @@ namespace InterpreteDebitoAPI.Entities
 		public int Cantidad { get; set; }
 	}
 
-	public class DashboardResponseDTO : GenericResponse
+    public class CantidadxDia
+    {
+        public DateTime fecha { get; set; }
+        public string CodigoOperacion { get; set; }
+        public string Descripcion { get; set; }
+        public int Cantidad { get; set; }
+    }
+
+    public class CantidadxHora
+    {
+        public int Hora { get; set; }
+        public int Cantidad { get; set; }
+    }
+
+    public class DashboardResponseDTO : GenericResponse
 	{
 		public TiemposEjecucion? tiemposEjecucion { get; set; }
 		public List<CantidadxTipo>? LstOperacionesTipo {get; set;}
-	}
+        public List<CantidadxDia>? LstOperacionesDia { get; set; }
+        public List<CantidadxHora>? LstOperacionesHora { get; set; }
 
-	public class TiemposEjecucionRequestDTO
+    }
+
+    public class TiemposEjecucionRequestDTO
 	{
 		public DateTime FechaIni { get; set; }
         public DateTime FechaFin { get; set; }
         public string? MTI { get; set; }
         public string? CodigoOperacion { get; set; }
+
+        public Paging? paging { get; set; }
+        
     }
 
 	public class TEjecucionTrama
@@ -79,8 +107,8 @@ namespace InterpreteDebitoAPI.Entities
     }
 
     public class TiemposEjecucionResponseDTO : GenericResponse
-	{
-		public List<TEjecucionTrama>? Lst { get; set; }
+    {
+        public List<TEjecucionTrama>? Lst { get; set; }
 		public TiemposEjecucion? Tiempos { get; set; }
 	}
 
