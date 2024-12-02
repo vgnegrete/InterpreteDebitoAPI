@@ -16,13 +16,13 @@ namespace InterpreteDebitoAPI.Controllers
             AD = _accesoDatos;
         }
 
-        [HttpGet]
-        public ActionResult<DashboardResponseDTO> GetDashboard()
+        [HttpPost, Authorize]
+        public ActionResult<DashboardResponseDTO> GetDashboard(DashboardRequestDTO pParams)
 		{
 
             try
             {
-                DashboardResponseDTO? ADresponse = AD?.prConsultarDashboard();
+                DashboardResponseDTO? ADresponse = AD?.prConsultarDashboard(pParams);
                 ADresponse.Result = 0;
                 ADresponse.Mensaje = "Ok";
 

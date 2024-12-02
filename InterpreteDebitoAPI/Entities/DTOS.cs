@@ -70,6 +70,13 @@ namespace InterpreteDebitoAPI.Entities
         public int Cantidad { get; set; }
     }
 
+    public class DashboardRequestDTO
+    {
+        public DateTime FechaIni { get; set; }
+        public DateTime FechaFin { get; set; }
+
+    }
+
     public class DashboardResponseDTO : GenericResponse
 	{
 		public TiemposEjecucion? tiemposEjecucion { get; set; }
@@ -85,7 +92,7 @@ namespace InterpreteDebitoAPI.Entities
         public DateTime FechaFin { get; set; }
         public string? MTI { get; set; }
         public string? CodigoOperacion { get; set; }
-
+        public string? NumeroAutorizacion { get; set; }
         public Paging? paging { get; set; }
         
     }
@@ -104,6 +111,10 @@ namespace InterpreteDebitoAPI.Entities
         public double TiempoEjecucion { get; set; }
         public double TMedioEjecucion { get; set; }
         public bool ExcedioTMedio { get; set; }
+        public string NumeroAutorizacion { get; set; }
+        public double? Monto { get; set; }
+        public string Accion { get; set; }
+
     }
 
     public class TiemposEjecucionResponseDTO : GenericResponse

@@ -10,7 +10,7 @@ namespace InterpreteDebitoAPI
         public TiemposEjecucionResponseDTO prConsultarTiemposEjecucion(TiemposEjecucionRequestDTO Params);
         public TiemposEjecucionResponseDTO prConsultarPagTiemposEjecucion(TiemposEjecucionRequestDTO Params);
         public DetalleTransaccionResponseDTO prConsultarDetalleTransaccion(DetalleTransaccionRequestDTO Params);
-        public DashboardResponseDTO prConsultarDashboard();
+        public DashboardResponseDTO prConsultarDashboard(DashboardRequestDTO pParams);
     }
 
 	public class AccesoDatos: IAccesoDatos
@@ -40,7 +40,8 @@ namespace InterpreteDebitoAPI
                         Params.FechaIni,
                         Params.FechaFin,
                         Params.MTI,
-                        Params.CodigoOperacion
+                        Params.CodigoOperacion,
+                        Params.NumeroAutorizacion,
                     },
                     commandType: System.Data.CommandType.StoredProcedure
                     );
@@ -60,6 +61,7 @@ namespace InterpreteDebitoAPI
                         Params.FechaFin,
                         Params.MTI,
                         Params.CodigoOperacion,
+                        Params.NumeroAutorizacion,
                         Params.paging?.Skip,
                         Params.paging?.Take
                     },
@@ -86,11 +88,16 @@ namespace InterpreteDebitoAPI
             }
         }
 
-        public DashboardResponseDTO prConsultarDashboard()
+        public DashboardResponseDTO prConsultarDashboard(DashboardRequestDTO pParams)
         {
             using (SqlConnection sqlcon = new SqlConnection(strCon))
             {
                 var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarDashboard]",
+                    new
+                    {
+                        FechaInicio = pParams.FechaIni,
+                        pParams.FechaFin
+                    },
                     commandType: System.Data.CommandType.StoredProcedure
                     );
 

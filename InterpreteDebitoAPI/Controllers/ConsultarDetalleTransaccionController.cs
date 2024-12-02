@@ -17,7 +17,7 @@ namespace InterpreteDebitoAPI.Controllers
             AD = _accesoDatos;
         }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IActionResult ConsultarDetalle(DetalleTransaccionRequestDTO param)
         {
             try
