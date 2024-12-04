@@ -43,7 +43,13 @@ namespace InterpreteDebitoAPI.Entities
 		public double Minimo { get; set; }
         public double Maximo { get; set; }
         public double Media { get; set; }
+
+        public double MinimoInter { get; set; }
+        public double MaximoInter { get; set; }
+        public double MediaInter { get; set; }
+
         public int Count { get; set; }
+
 		public DateTime UltimaTransaccion { get; set; }
         public DateTime FechaIni { get; set; }
         public DateTime FechaFin { get; set; }
