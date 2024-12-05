@@ -20,7 +20,7 @@ namespace InterpreteDebitoAPI.Controllers
             AD = _accesoDatos;
         }
 
-        [HttpGet, Authorize]
+        [HttpGet]
         public IActionResult ConsultarTiempos(DateTime pFechaIni, DateTime pFechaFin, string? pMTI, string? pCodigoOperacion, string? pNumeroAutorizacion)
 		{
             try
