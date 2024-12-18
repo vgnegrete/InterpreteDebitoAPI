@@ -178,5 +178,64 @@ namespace InterpreteDebitoAPI.Entities
         public string? UID { get; set; }
     }
 
+    public class MENSAJE_DESGLOSADO
+    {
+        public Guid UID {get;set;}
+        public DateTime FechaAlta {get;set;}
+        public string MTI {get;set;}
+        public string BitMap {get;set;}
+        public string PAN {get;set;}
+        public string CodigoOperacion {get;set;}
+        public string ImporteOperacion {get;set;}
+        public string ImporteConciliacion {get;set;}
+        public string ImporteOriginalTransaccion {get;set;}
+        public string FechaTransaccion {get;set;}
+        public string IndiceConversion {get;set;}
+        public string NumeroIdentificacionTransaccion {get;set;}
+        public string FechaLocal {get;set;}
+        public string FechaCaducidad {get;set;}
+        public string CodigoActividad {get;set;}
+        public string CodigoPais {get;set;}
+        public string DatosPuntoServicio {get;set;}
+        public string SecuencialTarjeta {get;set;}
+        public string CodigoRazon {get;set;}
+        public string CodigoActividadNacional {get;set;}
+        public string NumeroSesionOBPS {get;set;}
+        public string NumeroSesionOrigen {get;set;}
+        public string ImporteTasas {get;set;}
+        public string MonedaTasas {get;set;}
+        public string EntidadAdquiriente {get;set;}
+        public string EntidadPresentadora {get;set;}
+        public string EntidadAutorizadora {get;set;}
+        public string DatosPista2 {get;set;}
+        public string NumeroReferencia {get;set;}
+        public string NumeroAutorizacion {get;set;}
+        public string CodigoRespuesta {get;set;}
+        public string IdentificadorATM {get;set;}
+        public string IdentificadorComercio {get;set;}
+        public string NombreComercio {get;set;}
+        public string DatosAdicionales {get;set;}
+        public string CodigoMoneda {get;set;}
+        public string CodigoMonedaOriginal {get;set;}
+        public string BloquePIN {get;set;}
+        public string InformacionControlSeguridad {get;set;}
+        public string CodigoMonedaConciliacion {get;set;}
+        public string DatosEMV {get;set;}
+        public string DatosOperacionOriginal {get;set;}
+        public string DatosPrivadosOrigen {get;set;}
+        public string FechaContable {get;set;}
+        public string DatosControlRed {get;set;}
+        public string MAC {get;set;}
+        public string CodigoAccion {get; set;}
+        public string Descripcion {get; set;}
+
+    }
+
+    public class TramasResponseDTO : GenericResponse
+    {
+        public List<MENSAJE_DESGLOSADO> lstTramas {get; set;}
+    }
+
+
 }
 

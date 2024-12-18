@@ -11,6 +11,7 @@ namespace InterpreteDebitoAPI
         public TiemposEjecucionResponseDTO prConsultarPagTiemposEjecucion(TiemposEjecucionRequestDTO Params);
         public DetalleTransaccionResponseDTO prConsultarDetalleTransaccion(DetalleTransaccionRequestDTO Params);
         public DashboardResponseDTO prConsultarDashboard(DashboardRequestDTO pParams);
+        public TramasResponseDTO prConsultarTramas(DashboardRequestDTO pParams);
     }
 
 	public class AccesoDatos: IAccesoDatos
@@ -106,6 +107,25 @@ namespace InterpreteDebitoAPI
                     LstOperacionesTipo = queryResult.Read<CantidadxTipo>().ToList(),
                     LstOperacionesDia = queryResult.Read<CantidadxDia>().ToList(),
                     LstOperacionesHora = queryResult.Read<CantidadxHora>().ToList(),
+                };
+            }
+        }
+
+        public TramasResponseDTO prConsultarTramas(DashboardRequestDTO pParams)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(strCon))
+            {
+                var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarTramas]",
+                    new
+                    {
+                        pParams.FechaIni,
+                        pParams.FechaFin
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+
+                return new TramasResponseDTO()
+                {   lstTramas =  queryResult.Read<MENSAJE_DESGLOSADO>().ToList(),
                 };
             }
         }
