@@ -40,13 +40,17 @@ namespace InterpreteDebitoAPI.Entities
 
 	public class TiemposEjecucion
 	{
-		public double Minimo { get; set; }
-        public double Maximo { get; set; }
-        public double Media { get; set; }
-
         public double MinimoInter { get; set; }
         public double MaximoInter { get; set; }
         public double MediaInter { get; set; }
+
+		public double MinimoEjec { get; set; }
+        public double MaximoEjec { get; set; }
+        public double MediaEjec { get; set; }
+
+        public double MinimoResp { get; set; }
+        public double MaximoResp { get; set; }
+        public double MediaResp { get; set; }
 
         public int Count { get; set; }
 
