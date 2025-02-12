@@ -64,6 +64,11 @@ namespace InterpreteDebitoAPI.Entities
 		public string? CodigoOperacion { get; set; }
 		public string? Operacion { get; set; }
 		public int Cantidad { get; set; }
+
+        public double MinimoImporte {get; set;}
+        public double MaximoImporte {get; set;}
+        public double PromedioImporte {get; set;}
+
 	}
 
     public class CantidadxDia
