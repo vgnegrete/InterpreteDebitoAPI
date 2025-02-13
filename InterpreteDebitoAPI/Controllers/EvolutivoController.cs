@@ -15,7 +15,7 @@ public class EvolutivoController: Controller
         AD = _accesoDatos;
     }
 
-    [HttpPost]
+    [HttpPost, Authorize]
     public ActionResult<EvolutivoResponseDTO> GetEvolutivo(EvolutivoRequestDTO pParams)
     {
         try

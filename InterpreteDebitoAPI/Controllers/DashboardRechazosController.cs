@@ -15,7 +15,7 @@ public class DashboardRechazosController : Controller
         AD = _accesoDatos;
     }
 
-    [HttpPost]
+    [HttpPost, Authorize]
     public ActionResult<DashboardRechazosResponseDTO> GetDashboardRechazos(DashboardRequestDTO pParams)
     {
         try
