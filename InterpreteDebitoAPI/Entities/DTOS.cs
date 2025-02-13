@@ -262,6 +262,7 @@ namespace InterpreteDebitoAPI.Entities
     {
         public string? CodigoAccion {get; set;}
         public string? Descripcion {get; set;}
+        public string? Aprobada {get; set;}
         public int? Cantidad {get; set;}
 
     }
