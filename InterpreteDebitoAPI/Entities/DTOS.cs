@@ -112,6 +112,11 @@ namespace InterpreteDebitoAPI.Entities
         
     }
 
+    public class EvolutivoRequestDTO : DashboardRequestDTO
+    {
+        public string? CodigoOperacion {get; set;}
+    }
+
 	public class TEjecucionTrama
 	{
 		public Guid ? UID { get; set; }
@@ -243,6 +248,44 @@ namespace InterpreteDebitoAPI.Entities
     public class TramasResponseDTO : GenericResponse
     {
         public List<MENSAJE_DESGLOSADO> lstTramas {get; set;}
+    }
+
+    public class RespuestasXStatus
+    {
+        public string? httpStatusCode {get; set;}
+        public string? Descripcion {get; set;}
+        public int? Cantidad {get; set;}
+
+    } 
+
+    public class RespuestasXCodAccion
+    {
+        public string? CodigoAccion {get; set;}
+        public string? Descripcion {get; set;}
+        public int? Cantidad {get; set;}
+
+    }
+
+    public class DashboardRechazosResponseDTO : GenericResponse
+    {
+        public List<RespuestasXStatus>? lstStatusCode {get; set;}
+        public List<RespuestasXCodAccion>? lstCodigosAccion {get; set;}
+
+    }
+
+    public class EvolutivoItem
+    {
+        public string? Periodo {get; set;}
+        public int? CantidadOperaciones {get; set;}
+        public double? ImporteMin {get; set;}
+        public double? ImporteMax {get; set;}
+        public double? ImportePromedio {get; set;}
+        public double? ImporteSuma {get; set;}
+    }
+
+    public class EvolutivoResponseDTO : GenericResponse
+    {
+        public List<EvolutivoItem>? lst {get; set;}
     }
 
 

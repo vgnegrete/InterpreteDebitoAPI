@@ -12,6 +12,9 @@ namespace InterpreteDebitoAPI
         public DetalleTransaccionResponseDTO prConsultarDetalleTransaccion(DetalleTransaccionRequestDTO Params);
         public DashboardResponseDTO prConsultarDashboard(DashboardRequestDTO pParams);
         public TramasResponseDTO prConsultarTramas(DashboardRequestDTO pParams);
+        public DashboardRechazosResponseDTO prConsultarDashboardRechazos(DashboardRequestDTO pParams);
+        public EvolutivoResponseDTO prConsultarEvolutivo(EvolutivoRequestDTO pParams);
+
     }
 
 	public class AccesoDatos: IAccesoDatos
@@ -126,6 +129,46 @@ namespace InterpreteDebitoAPI
 
                 return new TramasResponseDTO()
                 {   lstTramas =  queryResult.Read<MENSAJE_DESGLOSADO>().ToList(),
+                };
+            }
+        }
+
+        public DashboardRechazosResponseDTO prConsultarDashboardRechazos(DashboardRequestDTO pParams)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(strCon))
+            {
+                var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarDashboardRechazos]",
+                    new
+                    {
+                        FechaInicio = pParams.FechaIni,
+                        pParams.FechaFin
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+
+                return new DashboardRechazosResponseDTO()
+                {   lstStatusCode = queryResult.Read<RespuestasXStatus>().ToList(),
+                    lstCodigosAccion = queryResult.Read<RespuestasXCodAccion>().ToList(),
+                };
+            }
+        }
+
+        public EvolutivoResponseDTO prConsultarEvolutivo(EvolutivoRequestDTO pParams)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(strCon))
+            {
+                var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarEvolutivo]",
+                    new
+                    {
+                        FechaInicio = pParams.FechaIni,
+                        pParams.FechaFin,
+                        pParams.CodigoOperacion
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+
+                return new EvolutivoResponseDTO()
+                {   lst = queryResult.Read<EvolutivoItem>().ToList(),
                 };
             }
         }
