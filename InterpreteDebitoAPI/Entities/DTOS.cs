@@ -160,6 +160,11 @@ namespace InterpreteDebitoAPI.Entities
 		public bool EsAutParcial { get; set; }
         public string? TokenNegocio { get; set; }
         public string? SiaID { get; set; }
+        public string? DatosAdicionales {get; set;}
+        public string? DatosPuntoServicio {get; set;}
+        public List<DetalleDatosAdicionales>? lstDetalleDatosAdicionales => Utilerias.DesglosarDatosAdicionales(DatosAdicionales);
+        public List<DescripcionPuntoServicio> lstDetalleDatosPuntoServicio => Utilerias.DesglosarDatosPuntoServicio( DatosPuntoServicio);
+
     }
 
 	public class CMVWSRequest
@@ -287,6 +292,21 @@ namespace InterpreteDebitoAPI.Entities
     public class EvolutivoResponseDTO : GenericResponse
     {
         public List<EvolutivoItem>? lst {get; set;}
+    }
+
+    public class DetalleDatosAdicionales
+    {
+        public string? Codigo {get; set;}
+        public string? Descripcion {get; set;}
+        public string? Data {get; set;}
+    }
+
+    public class DescripcionPuntoServicio
+    {
+        public int? Posicion {get; set;}
+        public string? ValorTrama {get; set;}
+        public string? Description {get; set;}
+        public string? Valor {get;set;}
     }
 
 

@@ -23,6 +23,7 @@ namespace InterpreteDebitoAPI.Controllers
             try
             {
                 DetalleTransaccionResponseDTO? ADresponse = AD?.prConsultarDetalleTransaccion(param);
+
                 ADresponse.Result = 0;
                 ADresponse.Mensaje = "Ok";
 
