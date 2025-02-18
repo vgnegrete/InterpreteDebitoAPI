@@ -164,6 +164,7 @@ namespace InterpreteDebitoAPI.Entities
         public string? DatosPuntoServicio {get; set;}
         public List<DetalleDatosAdicionales>? lstDetalleDatosAdicionales => Utilerias.DesglosarDatosAdicionales(DatosAdicionales);
         public List<DescripcionPuntoServicio> lstDetalleDatosPuntoServicio => Utilerias.DesglosarDatosPuntoServicio( DatosPuntoServicio);
+        public string? DatosOperacionOriginal { get; set; }
 
     }
 
@@ -195,6 +196,11 @@ namespace InterpreteDebitoAPI.Entities
     public class DetalleTransaccionRequestDTO
     {
         public string? UID { get; set; }
+    }
+
+    public class DetalleTransaccionOriginalRequestDTO
+    {
+        public string? DatosOperacionOriginal { get; set; }
     }
 
     public class MENSAJE_DESGLOSADO

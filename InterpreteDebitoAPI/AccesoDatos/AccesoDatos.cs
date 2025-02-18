@@ -14,6 +14,8 @@ namespace InterpreteDebitoAPI
         public TramasResponseDTO prConsultarTramas(DashboardRequestDTO pParams);
         public DashboardRechazosResponseDTO prConsultarDashboardRechazos(DashboardRequestDTO pParams);
         public EvolutivoResponseDTO prConsultarEvolutivo(EvolutivoRequestDTO pParams);
+        public DetalleTransaccionResponseDTO prConsultarDetalleTransaccionOriginal(string DatosOperacionOriginal);
+
 
     }
 
@@ -84,6 +86,22 @@ namespace InterpreteDebitoAPI
                     new
                     {
                         Params.UID
+                    },
+                    commandType: System.Data.CommandType.StoredProcedure
+                    );
+
+                return new DetalleTransaccionResponseDTO() { LogOperacion = queryResult.ReadFirst<DetalleOperacion>(), LogRequest = queryResult.ReadFirst<CMVWSRequest>(), LogResponse= queryResult.ReadFirst<CMVWSResponse>() };
+            }
+        }
+
+        public DetalleTransaccionResponseDTO prConsultarDetalleTransaccionOriginal(string DatosOperacionOriginal)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(strCon))
+            {
+                var queryResult = sqlcon.QueryMultiple("[MSJ].[prConsultarTransaccionOriginal]",
+                    new
+                    {
+                        DatosOperacionOriginal
                     },
                     commandType: System.Data.CommandType.StoredProcedure
                     );
