@@ -248,6 +248,9 @@ namespace InterpreteDebitoAPI.Entities
         public string CodigoAccion {get; set;}
         public string Descripcion {get; set;}
 
+        public List<DetalleDatosAdicionales>? lstDetalleDatosAdicionales => Utilerias.DesglosarDatosAdicionales(DatosAdicionales);
+        public List<DescripcionPuntoServicio> lstDetalleDatosPuntoServicio => Utilerias.DesglosarDatosPuntoServicio( DatosPuntoServicio);
+
     }
 
     public class TramasResponseDTO : GenericResponse
@@ -307,6 +310,11 @@ namespace InterpreteDebitoAPI.Entities
         public string? ValorTrama {get; set;}
         public string? Description {get; set;}
         public string? Valor {get;set;}
+
+        public override string ToString()
+        {
+            return $"{Description}:{ValorTrama}";
+        }
     }
 
 

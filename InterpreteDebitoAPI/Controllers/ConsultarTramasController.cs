@@ -42,11 +42,21 @@ public class ConsultarTramasController :ControllerBase
                     using ExcelWorkbook workbook = package.Workbook;
                     using ExcelWorksheet worksheet = workbook.Worksheets.Add("Tramas");
 
+                    //Columnas de Trama
                     int ColumNumber  =1;
                     foreach (PropertyInfo propertyInfo in  ADresponse.lstTramas.First().GetType().GetProperties())
                     {
                         worksheet.Cells[1, ColumNumber++].Value = propertyInfo.Name;
                     }
+                    
+                    //Columnas Desglose de datos adicionales
+                    worksheet.Cells[1, ColumNumber++].Value = "28.01 SIA-ID-CD";
+                    worksheet.Cells[1, ColumNumber++].Value = "28.15 TransaccionForzada";
+                    worksheet.Cells[1, ColumNumber++].Value = "28.31 TokenNegocio";
+
+                    //Columnas de desglose de datos del punto de servicio
+                    worksheet.Cells[1, ColumNumber++].Value = "22.XX DatosPuntoServicio";
+
 
                     //Data
                     // Data
@@ -54,10 +64,20 @@ public class ConsultarTramasController :ControllerBase
                     foreach (var Trama in ADresponse.lstTramas)
                     {
                         int Column =1;
+                        //Propiedades de la trama
                         foreach (PropertyInfo propertyInfo in  Trama.GetType().GetProperties())
                         {
                             worksheet.Cells[row, Column++].Value = propertyInfo.GetValue(Trama);
                         }
+
+                        //Desglose de datos adicionales
+                        worksheet.Cells[row, Column++].Value = Trama.lstDetalleDatosAdicionales?.First(i=>i.Codigo=="01").Data;
+                        worksheet.Cells[row, Column++].Value = Trama.lstDetalleDatosAdicionales?.Where(i=>i.Codigo=="15").Count()>0?"VERDADERO":"FALSO";
+                        worksheet.Cells[row, Column++].Value = Trama.lstDetalleDatosAdicionales?.First(i=>i.Codigo=="31").Data;
+
+                        string csv = String.Join(";", Trama.lstDetalleDatosPuntoServicio);
+                        worksheet.Cells[row, Column++].Value = csv;
+
                         row++;
                     }
 

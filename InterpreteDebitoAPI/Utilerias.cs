@@ -38,40 +38,40 @@ public static class Utilerias
         try
         {
             string value = pDatosPuntoServicio[0..1];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =1, Valor = value, Description ="Capacidad de captura de Datos del terminal.",  ValorTrama=ObtenerMedioCapturaP1(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =1, Valor = value, Description ="Capacidad de captura de Datos del terminal",  ValorTrama=ObtenerMedioCapturaP1(value) } );
             
             value = pDatosPuntoServicio[1..2];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =2, Valor = value, Description ="Capacidad de autenticar al cliente en la terminal.",  ValorTrama=ObtenerMedioAutenticacionP2(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =2, Valor = value, Description ="Capacidad de autenticar al cliente en la terminal",  ValorTrama=ObtenerMedioAutenticacionP2(value) } );
             
             value = pDatosPuntoServicio[2..3];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =3, Valor = value, Description ="Capacidad de retencion de tarjeta.",  ValorTrama=ObtenerCapacidadRetencionP3(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =3, Valor = value, Description ="Capacidad de retencion de tarjeta",  ValorTrama=ObtenerCapacidadRetencionP3(value) } );
 
             value = pDatosPuntoServicio[3..4];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =4, Valor = value, Description ="Tipo de terminal.",  ValorTrama=ObtenerTipoTerminaP4(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =4, Valor = value, Description ="Tipo de terminal",  ValorTrama=ObtenerTipoTerminaP4(value) } );
             
             value = pDatosPuntoServicio[4..5];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =5, Valor = value, Description ="Presencia del cliente.",  ValorTrama=ObtenerPrecenciaClienteP5(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =5, Valor = value, Description ="Presencia del cliente",  ValorTrama=ObtenerPrecenciaClienteP5(value) } );
             
             value = pDatosPuntoServicio[5..6];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =6, Valor = value, Description ="Presencia de la tarjeta.",  ValorTrama=ObtenerPresenciaTarjetaP6(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =6, Valor = value, Description ="Presencia de la tarjeta",  ValorTrama=ObtenerPresenciaTarjetaP6(value) } );
 
             value = pDatosPuntoServicio[6..7];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =7, Valor = value, Description ="Método utilizado para capturar los datos de la tarjeta en el terminal.",  ValorTrama=ObtenerMedioCapturaTarjetaP7(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =7, Valor = value, Description ="Método utilizado para capturar los datos de la tarjeta en el terminal",  ValorTrama=ObtenerMedioCapturaTarjetaP7(value) } );
 
             value = pDatosPuntoServicio[7..8];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =8, Valor = value, Description ="Método de atentación del cliente.",  ValorTrama=ObtenerMetodoAtencionClienteP8(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =8, Valor = value, Description ="Método de atentación del cliente",  ValorTrama=ObtenerMetodoAtencionClienteP8(value) } );
 
             value = pDatosPuntoServicio[8..9];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =9, Valor = value, Description ="Dispositivo o Entidad que debe autenticar al cliente.",  ValorTrama=ObtenerEntidadQueAutenticaP9(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =9, Valor = value, Description ="Dispositivo o Entidad que debe autenticar al cliente",  ValorTrama=ObtenerEntidadQueAutenticaP9(value) } );
             
             value = pDatosPuntoServicio[9..10];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =10, Valor = value, Description ="Capacidad del terminal de actualización de los datos de la tarjeta.",  ValorTrama=ObtenerCapacidadActualizacionP10(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =10, Valor = value, Description ="Capacidad del terminal de actualización de los datos de la tarjeta",  ValorTrama=ObtenerCapacidadActualizacionP10(value) } );
             
             value = pDatosPuntoServicio[10..11];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =11, Valor = value, Description ="Capacidad del terminal para imprimir y/o mostrar mensajes.",  ValorTrama=ObtenerCapacidadImpresion11(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =11, Valor = value, Description ="Capacidad del terminal para imprimir y/o mostrar mensajes",  ValorTrama=ObtenerCapacidadImpresion11(value) } );
             
             value = pDatosPuntoServicio[11..12];
-            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =12, Valor = value, Description ="Longitud máxima de PIN que el terminal es capaz de tratar.",  ValorTrama=ObtenerMaximaTrataPinP12(value) } );
+            lstDatosPuntoServicio.Add(new DescripcionPuntoServicio() { Posicion =12, Valor = value, Description ="Longitud máxima de PIN que el terminal es capaz de tratar",  ValorTrama=ObtenerMaximaTrataPinP12(value) } );
 
         } catch{}
         
