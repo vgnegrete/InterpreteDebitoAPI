@@ -16,21 +16,18 @@ public class ConsultarDetalleTransaccionOriginalController : ControllerBase
         AD = _accesoDatos;
     }
 
-    [HttpPost, Authorize]
+    [HttpPost]
     public IActionResult ConsultarDetalle(DetalleTransaccionOriginalRequestDTO param)
     {
         try
         {
-            DetalleTransaccionResponseDTO? ADresponse = AD?.prConsultarDetalleTransaccionOriginal(param.DatosOperacionOriginal);
+            List<DetalleOperacion> Lst = AD?.prConsultarDetalleTransaccionOriginal(param);
 
-            ADresponse.Result = 0;
-            ADresponse.Mensaje = "Ok";
-
-            return Ok(ADresponse);
+            return Ok(new {Lst, Result = 0, Mensaje = "Ok" } );
         }
         catch (Exception Ex)
         {
-            return StatusCode(500, new DetalleTransaccionResponseDTO() { Result = 1, Mensaje = Ex.Message });
+            return StatusCode(500,  new { Lst=new List<DetalleOperacion>(), Result = 1, Mensaje = Ex.Message });
         }
     }
 

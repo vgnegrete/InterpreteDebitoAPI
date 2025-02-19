@@ -201,6 +201,9 @@ namespace InterpreteDebitoAPI.Entities
     public class DetalleTransaccionOriginalRequestDTO
     {
         public string? DatosOperacionOriginal { get; set; }
+        public string? CodigoOperacion {get; set;}
+        public string? NumeroAutorizacion {get; set;}
+
     }
 
     public class MENSAJE_DESGLOSADO
