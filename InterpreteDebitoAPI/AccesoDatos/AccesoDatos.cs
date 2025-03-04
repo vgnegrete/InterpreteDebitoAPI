@@ -33,7 +33,7 @@ namespace InterpreteDebitoAPI
             string User = configuration.GetSection("DBConnection")["User"];
             string Password = configuration.GetSection("DBConnection")["Password"];
 
-            strCon  = $"Server= {Server}; Database= {Database}; User Id= {User}; Password= {Password}; Connect Timeout=2; max pool size=10";
+            strCon  = $"Server= {Server}; Database= {Database}; User Id= {User}; Password= {Password}; Connect Timeout=2; max pool size=10; Encrypt=True; TrustServerCertificate=True";
         }
 
         public TiemposEjecucionResponseDTO prConsultarTiemposEjecucion (TiemposEjecucionRequestDTO Params)
@@ -90,7 +90,7 @@ namespace InterpreteDebitoAPI
                     commandType: System.Data.CommandType.StoredProcedure
                     );
 
-                return new DetalleTransaccionResponseDTO() { LogOperacion = queryResult.ReadFirst<DetalleOperacion>(), LogRequest = queryResult.ReadFirst<CMVWSRequest>(), LogResponse= queryResult.ReadFirst<CMVWSResponse>() };
+                return new DetalleTransaccionResponseDTO() { LogOperacion = queryResult.ReadFirst<DetalleOperacion>(), LogRequest = queryResult.ReadFirstOrDefault<CMVWSRequest>(), LogResponse= queryResult.ReadFirstOrDefault<CMVWSResponse>() };
             }
         }
 

@@ -16,7 +16,7 @@ public class ConsultarDetalleTransaccionOriginalController : ControllerBase
         AD = _accesoDatos;
     }
 
-    [HttpPost]
+    [HttpPost, Authorize]
     public IActionResult ConsultarDetalle(DetalleTransaccionOriginalRequestDTO param)
     {
         try

@@ -134,6 +134,9 @@ namespace InterpreteDebitoAPI.Entities
         public string NumeroAutorizacion { get; set; }
         public double? Monto { get; set; }
         public string Accion { get; set; }
+        public string? NumeroTarjeta {get; set;}
+        public string? NumSocio {get; set;}
+
 
     }
 
@@ -184,6 +187,9 @@ namespace InterpreteDebitoAPI.Entities
         public string? CodigoAccion { get; set; }
         public string? Accion { get; set; }
         public string? Response { get; set; }
+        public string? NumeroTarjeta {get; set;}
+        public string? NumSocio {get; set;}
+
     }
 
     public class DetalleTransaccionResponseDTO : GenericResponse
