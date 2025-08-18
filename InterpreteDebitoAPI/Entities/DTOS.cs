@@ -129,6 +129,8 @@ namespace InterpreteDebitoAPI.Entities
         public DateTime FechaRequest { get; set; }
         public DateTime FechaResponse { get; set; }
         public double TiempoEjecucion { get; set; }
+        public double TiempoRespuesta { get; set; }
+
         public double TMedioEjecucion { get; set; }
         public bool ExcedioTMedio { get; set; }
         public string NumeroAutorizacion { get; set; }
