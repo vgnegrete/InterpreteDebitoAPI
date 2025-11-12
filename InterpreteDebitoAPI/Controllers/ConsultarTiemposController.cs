@@ -52,10 +52,11 @@ namespace InterpreteDebitoAPI.Controllers
                     worksheet.Cells[1, 5].Value = "Tarjeta";
                     worksheet.Cells[1, 6].Value = "Socio";
                     worksheet.Cells[1, 7].Value = "Monto";
-                    worksheet.Cells[1, 8].Value = "Accion";
-                    worksheet.Cells[1, 9].Value = "Tiempo interp ";
-                    worksheet.Cells[1, 10].Value = "Tiempo ejecucion";
-                    worksheet.Cells[1, 11].Value = "Tiempo respuesta";
+                    worksheet.Cells[1, 8].Value = "Monto Autorizado";
+                    worksheet.Cells[1, 9].Value = "Accion";
+                    worksheet.Cells[1, 10].Value = "Tiempo interp ";
+                    worksheet.Cells[1, 11].Value = "Tiempo ejecucion";
+                    worksheet.Cells[1, 12].Value = "Tiempo respuesta";
 
 
                     //Data
@@ -70,10 +71,11 @@ namespace InterpreteDebitoAPI.Controllers
                         worksheet.Cells[row, 5].Value = Trama.NumeroTarjeta;
                         worksheet.Cells[row, 6].Value = Trama.NumSocio;
                         worksheet.Cells[row, 7].Value = Trama.Monto;
-                        worksheet.Cells[row, 8].Value = Trama.Accion;
-                        worksheet.Cells[row, 9].Value = Trama.TiempoDesglose;
-                        worksheet.Cells[row, 10].Value = Trama.TiempoEjecucion;
-                        worksheet.Cells[row, 11].Value = Trama.TiempoRespuesta;
+                        worksheet.Cells[row, 8].Value = Trama.MontoAutoriado;
+                        worksheet.Cells[row, 9].Value = Trama.Accion;
+                        worksheet.Cells[row, 10].Value = Trama.TiempoDesglose;
+                        worksheet.Cells[row, 11].Value = Trama.TiempoEjecucion;
+                        worksheet.Cells[row, 12].Value = Trama.TiempoRespuesta;
 
 
                         row++;

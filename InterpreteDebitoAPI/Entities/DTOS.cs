@@ -139,6 +139,7 @@ namespace InterpreteDebitoAPI.Entities
         public string? NumeroTarjeta {get; set;}
         public string? NumSocio { get; set; }
         public double? Residuo { get; set; }
+        public double? MontoAutoriado => Monto - Residuo ?? 0;
     }
 
     public class TiemposEjecucionResponseDTO : GenericResponse
@@ -224,7 +225,8 @@ namespace InterpreteDebitoAPI.Entities
         public string CodigoOperacion {get;set;}
         public string ImporteOperacion {get;set;}
         public string ImporteConciliacion {get;set;}
-        public string ImporteOriginalTransaccion {get;set;}
+        public string ImporteOriginalTransaccion { get; set; }
+        public double ImporteAutorizado { get; set; }
         public string FechaTransaccion {get;set;}
         public string IndiceConversion {get;set;}
         public string NumeroIdentificacionTransaccion {get;set;}
@@ -264,7 +266,7 @@ namespace InterpreteDebitoAPI.Entities
         public string MAC {get;set;}
         public string CodigoAccion {get; set;}
         public string Descripcion { get; set; }
-        public double? Residuo { get; set; }
+
 
         public List<DetalleDatosAdicionales>? lstDetalleDatosAdicionales => Utilerias.DesglosarDatosAdicionales(DatosAdicionales);
         public List<DescripcionPuntoServicio> lstDetalleDatosPuntoServicio => Utilerias.DesglosarDatosPuntoServicio( DatosPuntoServicio);
